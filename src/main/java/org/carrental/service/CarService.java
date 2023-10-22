@@ -37,4 +37,13 @@ public class CarService {
         return carRepository.getByStatus(CarStatus.AVAILABLE);
     }
 
+    public Car updateModel(Integer id, String newModel){
+        if (newModel.isBlank()){
+            throw new ValidationException("cannot be blank", "newModel");
+        }
+
+        return carRepository.updateModel(id, newModel)
+                .orElseThrow(() -> new CarNotFoundException("car does not exist"));
+    }
+
 }
