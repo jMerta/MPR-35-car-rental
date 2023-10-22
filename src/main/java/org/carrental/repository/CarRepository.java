@@ -34,7 +34,8 @@ public class CarRepository {
         return carList;
     }
 
-    public void removeAll(){
+    public void removeAll() {
+        // todo check why its not working
         carList = new ArrayList<>();
     }
 

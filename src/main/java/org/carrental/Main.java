@@ -37,6 +37,7 @@ public class Main {
 
         List<Car> availableCars = carService.getAvailableCars();
 
+        carRepository.removeAll();
         System.out.println(availableCars);
 
 
