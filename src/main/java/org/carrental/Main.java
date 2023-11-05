@@ -16,36 +16,35 @@ public class Main {
         CarRepository carRepository = new CarRepository();
         CarService carService = new CarService(carRepository);
 
-        Car car = new Car(null, "volkswagen", "golf", "123",
-                CarClass.STANDARD, CarStatus.AVAILABLE);
-        Car car2 = new Car(null, "volkswagen", "passat",
-                "abc",
-                CarClass.STANDARD, CarStatus.RENTED);
-        Car car3 = new Car(null, "volkswagen", "passat",
-                "zxc",
-                CarClass.PREMIUM, CarStatus.AVAILABLE);
-        Car createdCar = carService.createCar(car);
-        carService.createCar(car2);
-        carService.createCar(car3);
 
-        System.out.println(createdCar);
-
-        Car carById = carService.getById(0);
-
-        System.out.println(carById);
-        carService.updateModel(2, "polo");
-
-        List<Car> availableCars = carService.getAvailableCars();
-
-        carRepository.removeAll();
-        System.out.println(availableCars);
-
-
-        Car invalidCar = new Car(null, "volkswagen",
-                "golf", "1234",
-                CarClass.STANDARD, CarStatus.AVAILABLE);
-
-//        carService.createCar(invalidCar);
+//        Car car2 = new Car(null, "volkswagen", "passat",
+//                "abc",
+//                CarClass.STANDARD, CarStatus.RENTED);
+//        Car car3 = new Car(null, "volkswagen", "passat",
+//                "zxc",
+//                CarClass.PREMIUM, CarStatus.AVAILABLE);
+////        Car createdCar = carService.createCar(car);
+//        carService.createCar(car2);
+//        carService.createCar(car3);
+//
+//        System.out.println(createdCar);
+//
+//        Car carById = carService.getById(0);
+//
+//        System.out.println(carById);
+//        carService.updateModel(2, "polo");
+//
+//        List<Car> availableCars = carService.getAvailableCars();
+//
+//        carRepository.removeAll();
+//        System.out.println(availableCars);
+//
+//
+//        Car invalidCar = new Car(null, "volkswagen",
+//                "golf", "1234",
+//                CarClass.STANDARD, CarStatus.AVAILABLE);
+//
+////        carService.createCar(invalidCar);
 
 
         // Plan działania

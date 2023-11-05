@@ -15,11 +15,11 @@ public class CarService {
     private final CarRepository carRepository;
 
     public Car createCar(Car car) {
-        if (car.getMake().isBlank()) {
+        if (car.getMake() == null || car.getMake().isBlank()) {
             throw new ValidationException("cannot be blank", "make");
         }
         if (car.getVin().length() != 3) {
-            throw new ValidationException("max length is 3", "vin");
+            throw new ValidationException("length must be 3", "vin");
         }
 
         carRepository.create(car);
@@ -46,4 +46,7 @@ public class CarService {
                 .orElseThrow(() -> new CarNotFoundException("car does not exist"));
     }
 
+    public List<Car> getAll(){
+        return carRepository.getAll();
+    }
 }
