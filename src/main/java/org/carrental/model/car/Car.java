@@ -1,4 +1,4 @@
-package org.carrental.model;
+package org.carrental.model.car;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,4 +12,5 @@ public class Car {
     private String vin;
     private CarClass carClass;
     private CarStatus status;
+    private Double dailyRate;
 }
