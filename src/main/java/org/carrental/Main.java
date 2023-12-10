@@ -1,28 +1,39 @@
 package org.carrental;
 
+import org.carrental.model.car.Car;
+import org.carrental.model.car.CarClass;
+import org.carrental.model.car.CarStatus;
 import org.carrental.repository.CarRepository;
 import org.carrental.service.CarService;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.List;
+
+@SpringBootApplication
 public class Main {
     public static void main(String[] args) {
+        ConfigurableApplicationContext context = SpringApplication.run(Main.class);
 
-        CarRepository carRepository = new CarRepository();
-        CarService carService = new CarService(carRepository);
+        CarService carService = context.getBean("carService", CarService.class);
 
 
-//        Car car2 = new Car(null, "volkswagen", "passat",
-//                "abc",
-//                CarClass.STANDARD, CarStatus.RENTED);
-//        Car car3 = new Car(null, "volkswagen", "passat",
-//                "zxc",
-//                CarClass.PREMIUM, CarStatus.AVAILABLE);
-////        Car createdCar = carService.createCar(car);
-//        carService.createCar(car2);
-//        carService.createCar(car3);
-//
-//        System.out.println(createdCar);
+        Car car2 = new Car(null, "volkswagen", "passat",
+                "abc",
+                CarClass.STANDARD, CarStatus.RENTED, 50D);
+        Car car3 = new Car(null, "volkswagen", "passat",
+                "zxc",
+                CarClass.PREMIUM, CarStatus.AVAILABLE, 100D);
+//        Car createdCar = carService.createCar(car);
+        Car createdCar = carService.createCar(car2);
+        carService.createCar(car3);
+
+        System.out.println(createdCar);
+
+        List<Car> carList = carService.getAll();
+
+        System.out.println(carList);
 //
 //        Car carById = carService.getById(0);
 //

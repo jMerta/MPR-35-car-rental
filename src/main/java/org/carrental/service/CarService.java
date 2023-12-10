@@ -6,10 +6,12 @@ import org.carrental.exception.ValidationException;
 import org.carrental.model.car.Car;
 import org.carrental.model.car.CarStatus;
 import org.carrental.repository.CarRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 @RequiredArgsConstructor
 public class CarService {
     private final CarRepository carRepository;
