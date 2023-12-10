@@ -38,7 +38,7 @@ class CarServiceTest {
     @Test
     void shouldCorrectlyCreateCar() {
         Car car = new Car(null, "volkswagen", "golf", "123",
-                CarClass.STANDARD, CarStatus.AVAILABLE);
+                CarClass.STANDARD, CarStatus.AVAILABLE, 50D);
 
         Car result = assertDoesNotThrow(() -> carService.createCar(car));
 
@@ -56,7 +56,7 @@ class CarServiceTest {
     @Test
     void shouldNotCreateCarDueToValidation() {
         Car car = new Car(null, "volkswagen", "golf", "1234",
-                CarClass.STANDARD, CarStatus.AVAILABLE);
+                CarClass.STANDARD, CarStatus.AVAILABLE, 50D);
 
         ValidationException result = assertThrows(ValidationException.class,
                 () -> carService.createCar(car));
@@ -77,7 +77,7 @@ class CarServiceTest {
         Car car = new Car(null, make,
                 "golf", "123",
                 CarClass.STANDARD,
-                CarStatus.AVAILABLE);
+                CarStatus.AVAILABLE, 50D);
 
         ValidationException result =
                 assertThrows(ValidationException.class,
@@ -90,7 +90,7 @@ class CarServiceTest {
     @Test
     void shouldCorrectlyUpdateCar() {
         Car car = new Car(null, "volkswagen", "golf", "123",
-                CarClass.STANDARD, CarStatus.AVAILABLE);
+                CarClass.STANDARD, CarStatus.AVAILABLE, 50D);
 
         Car createdCar = carService.createCar(car);
 
@@ -122,9 +122,9 @@ class CarServiceTest {
     @Test
     void ShouldReturnAvailableCars(){
         Car car = new Car(null, "volkswagen", "golf", "123",
-                CarClass.STANDARD, CarStatus.AVAILABLE);
+                CarClass.STANDARD, CarStatus.AVAILABLE,100D);
         Car car2 = new Car(null, "volkswagen", "passat", "123",
-                CarClass.STANDARD, CarStatus.RENTED);
+                CarClass.STANDARD, CarStatus.RENTED, 50D);
 
         carService.createCar(car);
         carService.createCar(car2);
